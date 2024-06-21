@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Verificação de idade</title>
+  </head>
+  <body>
+    <h1>Verificação de idade</h1>
+    <input id="qtdPessoas" type="number" value="5">
+    <button onclick="verificaIdade()">Verificar idade</button>
+    <p id="resultado"></p>
+    <script src="script.js"></script>
+  </body>
+</html>
+script.js
+
+javascript
+
+Open In Editor
+Edit
+Run
+Copy code
+function verificaIdade() {
+  const qtdPessoas = parseInt(document.getElementById("qtdPessoas").value);
+  const idades = [];
+
+  for (let i = 0; i < qtdPessoas; i++) {
+    idades.push(prompt(`Informe a idade da pessoa ${i + 1}:`));
+  }
+
+  const resultado = verificaIdades(idades);
+
+  document.getElementById("resultado").innerHTML = `
+    <p>${resultado}</p>
+  `;
+}
+
+function verificaIdades(idades) {
+  let maiores = 0;
+  let menores = 0;
+
+  for (let i = 0; i < idades.length; i++) {
+    if (idades[i] >= 18) {
+      maiores++;
+    } else {
+      menores++;
+    }
+  }
+
+  return `Maiores de idade: ${maiores}\nMenores de idade: ${menores}`;
+}
